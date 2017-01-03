@@ -1,0 +1,47 @@
+conky.config = {
+    alignment = 'bottom_middle',
+
+    cpu_avg_samples = 1,
+    net_avg_samples = 1,
+    update_interval = 1,
+
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    color2 = 'gray50',
+
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=9',
+
+
+    draw_borders = false,
+    draw_shades = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+
+    border_width = 0,
+
+    gap_x = 0,
+    gap_y = 0,
+
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+
+
+    use_spacer = 'left',
+    double_buffer = true,
+    no_buffers = false,
+
+    total_run_times = 0,
+    background = true,
+
+    lua_load = '~/.conky/draw_bg.lua',
+    lua_draw_hook_pre = 'draw_bg',
+}
+
+conky.text = [[
+${color2}up: ${color}$uptime  ${color2}cpu1: ${color}${cpu cpu1}%  ${color2}cpu2: ${color}${cpu cpu2}% ${color2}cpu3: ${color}${cpu cpu3}% ${color2}cpu4: ${color}${cpu cpu4}% ${color2}Frec: ${color}${freq_g} Ghz  ${color2}Tcpu: ${color}${acpitemp}°C  ${color2}Thdd:${color}${hddtemp /dev/sda}°C  ${color2}ram: ${color} $memperc%  ${color2}swap: ${color}$swapperc%  ${if_existing /proc/net/route enp7s0} ${color2}ip: ${color}${addr enp7s0}  ${color2}net: dn${color} ${downspeed enp7s0} ${color2}up${color} ${upspeed enp7s0}${else}${if_up wlp2s0}${color2}ip: ${color}${addr wlp2s0}  ${color2}net: dn${color} ${downspeed wlp2s0} ${color2}up${color} ${upspeed wlp2s0}${endif}${endif} ${color2} bat: ${color}${battery_percent BAT0}% 
+]]

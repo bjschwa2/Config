@@ -14,6 +14,7 @@ if v:progname =~? "evim"
   finish
 endif
 
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -95,3 +96,12 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+colo afterglow
+
+execute pathogen#infect()
+call pathogen#helptags() " generate helptags for everything in ‘runtimepath’
+syntax on
+filetype plugin indent on
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
